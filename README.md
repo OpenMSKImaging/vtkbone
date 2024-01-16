@@ -68,6 +68,7 @@ ccmake ..
 make
 ctest -V
 ```
+On Windows the procedure is a rather different: refer to CMake documentation.
 
 Class List
 =================
@@ -75,33 +76,17 @@ Class List
 Here is a list of some useful classes, structs, unions and interfaces with brief descriptions. 
 For a full list, see [here](https://bonelab.github.io/n88/documentation/vtkbone/1.0/annotated.html). 
 
-.. list-table::
-   :widths: 25 100
-   :header-rows: 1
-
-   * - Command
-     - Description
-   * - :code:`vtkboneAIMReader`
-     - read in a Scanco .aim file
-   * - :code:`vtkboneAIMWriter`
-     - writes Scanco .aim files 
-   * - :code:`vtkboneApplyBendingTest`
-     - generates a finite element mesh that corresponds to a bending test
-   * - :code:`vtkboneApplyCompressionTest`
-     - generates a finite element mesh that corresponds to a compression test
-   * - :code:`vtkboneApplyDirectionalShearTest`
-     - generates a finite element mesh that corresponds to a directional shear test
-   * - :code:`vtkboneApplySymmetricShearTest`
-     - generates a finite element mesh that corresponds to a symmetric shear test
-   * - :code:`vtkboneN88ModelReader`
-     - read n88model files
-   * - :code:`vtkboneN88ModelWriter`
-     - writes an n88model file
-   * - :code:`vtkboneSolverParameters`
-     - description of a finite element test
-
-
-On Windows the procedure is a rather different: refer to CMake documentation.
+|Command|Description|
+|:--------:|:--------:|
+|  vtkboneAIMReader   |  read in a .AIM file   | 
+|  vtkboneAIMWriter   |  writes a .AIM file   |  
+|  vtkboneApplyBendingTest   |  generates a finite element mesh that corresponds to a bending test   |  
+|  vtkboneApplyCompressionTest   |  generates a finite element mesh that corresponds to a compression test   | 
+|  vtkboneApplyDirectionalShearTest   |  generates a finite element mesh that corresponds to a directional shear test   | 
+|  vtkboneApplySymmetricShearTest   |  generates a finite element mesh that corresponds to a symmetric shear test   | 
+|  vtkboneN88ModelReader   |  reads n88 model files   | 
+|  vtkboneN88ModelWriter   |  writes an n88model file   | 
+|  vtkboneSolverParameters   |  description of the finite element test   | 
 
 ## Authors and Contributors
 
