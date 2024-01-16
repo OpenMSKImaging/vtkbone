@@ -13,7 +13,7 @@ A manual exists for the Faim FE package that includes a chapter on using vtkbone
 and a chapter with tutorials. It can be found at http://numerics88.com/documentation/ .
 
 ## Installation 
-Vtkbone is open-source and if you want you can download the source code from [https://github.com/Numerics88/] and compile them yourself it yourself (see below for compiling and linking). However, this is a hastle and the easiest way to install vtkbone is using Anaconda Python, which is supported on Linux, Windows, and macOS. 
+vtkbone is open-source and if you want you can download the source code from [https://github.com/Numerics88/] and compile it yourself (see below for compiling and linking). However, this is a hastle and the easiest way to install vtkbone is using Anaconda Python, which is supported on Linux, Windows, and macOS. 
 
 You can install <mark>Anaconda</mark> Python from [here](https://www.anaconda.com/download). You can also install <mark>Miniconda</mark> [here](https://docs.conda.io/projects/miniconda/en/latest/index.html#quick-command-line-install), a free minimal installer for Conda. It is a small bootstrap version of Anaconda Python that only includes conda, Python, the packages they both depend on, and a small number of other useful packages (like pip, zlib, and a few others). If you want more packages, you can install them of course using the conda install command to install. 
 
@@ -40,12 +40,21 @@ To run Anaconda using the x86_64 (Intel) architecture on an Apple M1 (ARM64) Mac
 ```sh
 softwareupdate --install-rosetta 
 ```
-2. Activate Rosetta 2 for terminal: To ensure that the terminal runs in Rosetta 2 mode (Intel mode), you can use the arch command to switch the terminal to use the x86_64 architecture. Open a new terminal window, and then run the following command:
+2. Activate Rosetta 2 for terminal: To ensure that the terminal runs in Rosetta 2 mode (Intel mode), you can use the arch command to switch the terminal to use the x86_64 architecture. Open a new terminal window, and run the following command:
 ```sh
 arch -x86_64 /bin/zsh 
 ```
 Replace bin/bash with the shell that you use if it's different. 
 
+## Cloning this repo 
+With SSH authentication: 
+```sh
+git clone git@github.com:OpenMSKImaging/vtkbone.git
+```
+Or directly with HTTPS: 
+```sh
+git clone https://github.com/OpenMSKImaging/vtkbone.git
+```
 
 ## Compiling and linking
 
@@ -77,16 +86,19 @@ Here is a list of some useful classes, structs, unions and interfaces with brief
 For a full list, see [here](https://bonelab.github.io/n88/documentation/vtkbone/1.0/annotated.html). 
 
 |Command|Description|
-|:--------:|:--------:|
-|  vtkboneAIMReader   |  read in a .AIM file   | 
-|  vtkboneAIMWriter   |  writes a .AIM file   |  
-|  vtkboneApplyBendingTest   |  generates a finite element mesh that corresponds to a bending test   |  
-|  vtkboneApplyCompressionTest   |  generates a finite element mesh that corresponds to a compression test   | 
-|  vtkboneApplyDirectionalShearTest   |  generates a finite element mesh that corresponds to a directional shear test   | 
-|  vtkboneApplySymmetricShearTest   |  generates a finite element mesh that corresponds to a symmetric shear test   | 
-|  vtkboneN88ModelReader   |  reads n88 model files   | 
-|  vtkboneN88ModelWriter   |  writes an n88model file   | 
-|  vtkboneSolverParameters   |  description of the finite element test   | 
+|:--------:|:--------|
+|  vtkboneAIMReader   |  Read in a .AIM file   | 
+|  vtkboneAIMWriter   |  Writes a .AIM file   |  
+|  vtkboneApplyBendingTest   |  Generates a finite element mesh that corresponds to a bending test   |  
+|  vtkboneApplyCompressionTest   |  Generates a finite element mesh that corresponds to a compression test   | 
+|  vtkboneApplyDirectionalShearTest   |  Generates a finite element mesh that corresponds to a directional shear test   | 
+|  vtkboneApplySymmetricShearTest   |  Generates a finite element mesh that corresponds to a symmetric shear test   | 
+|  vtkboneN88ModelReader   |  Reads n88 model files   | 
+|  vtkboneN88ModelWriter   |  Writes an n88model file   | 
+|  vtkboneSolverParameters   |  Description of the finite element test   | 
+|  vtkboneFiniteElementModel   |  Data model for finite element meshes   | 
+|  vtkboneFiniteElementModelGenerator   |  Class for generating a finite element mesh   | 
+|  vtkboneMaterialTable   |  Material Table finite element mesh   | 
 
 ## Authors and Contributors
 
