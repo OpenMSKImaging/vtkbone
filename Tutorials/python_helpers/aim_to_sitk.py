@@ -54,6 +54,9 @@ def aim_to_sitk(file_path, scaling, WRITE_MHA=False):
         np_image_scaled = np_image/mu_scaling * density_slope + density_intercept
         print('image converted to bone mineral density')
     
+    elif scaling == 'binary':
+        np_image_native = np_image
+
     elif scaling == 'none': 
         np_image_scaled = np_image
         print("image values are unchanged")   
