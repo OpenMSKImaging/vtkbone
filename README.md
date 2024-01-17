@@ -23,6 +23,12 @@ Next, you need to create an Anaconda <mark>enviroment</mark> to run vtkbone. An 
 conda create --name vtkbone --channel numerics88 --channel conda-forge python=3.7 n88tools numpy scipy
 ```
 
+Or use the provided conda environment file 
+
+```sh
+conda env create -f environment.yml
+```
+
 To use vtkbone, you simply activate the Anaconda environment. On Linux and macOS this is done through the following command: 
 
 ```sh
