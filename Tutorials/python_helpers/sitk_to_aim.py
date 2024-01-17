@@ -1,8 +1,14 @@
 import os
-import vtkbone
+
+import numpy as np
 import SimpleITK as sitk
 import vtk
-import numpy as np
+from python_helpers.aim_calibration_header import (
+    get_aim_calibration_constants_from_processing_log, get_aim_hu_equation)
+from python_helpers.vtk_util import numpy_to_vtkImageData
+
+import vtkbone
+
 
 def sitk_to_aim(file_path='', sitk_img=None, WRITE_AIM=False, output_path=''):
     """
@@ -52,6 +58,8 @@ def sitk_to_aim(file_path='', sitk_img=None, WRITE_AIM=False, output_path=''):
     # to numpy array
     np_image = sitk.GetArrayFromImage(sitk_img)
 
+    vtktype = vtk.VTK_SHORT
+
     if unit == 'mu':
         mu_scaling, hu_mu_water, hu_mu_air, density_slope, density_intercept = get_aim_calibration_constants_from_processing_log(img_log)
         np_image_native = np_image * mu_scaling
@@ -65,9 +73,12 @@ def sitk_to_aim(file_path='', sitk_img=None, WRITE_AIM=False, output_path=''):
         mu_scaling, hu_mu_water, hu_mu_air, density_slope, density_intercept = get_aim_calibration_constants_from_processing_log(img_log)
         np_image_native = (np_image - density_intercept) * mu_scaling / density_slope
 
+    elif unit == 'binary':
+        np_image_native = np_image
+        vtktype = vtk.VTK_CHAR
+
     elif unit == 'native':
         np_image_native = np_image
-
     else:
         raise ValueError(f'Incorrect image unit specified in metadata: {unit}.')
 
@@ -76,7 +87,8 @@ def sitk_to_aim(file_path='', sitk_img=None, WRITE_AIM=False, output_path=''):
 
     origin = sitk_img.GetOrigin()
     spacing = sitk_img.GetSpacing()
-    vtk_img = numpy_to_vtkImageData(np_image_native, spacing=spacing, origin=origin, array_type=vtk.VTK_SHORT)
+
+    vtk_img = numpy_to_vtkImageData(np_image_native, spacing=spacing, origin=origin, array_type=vtktype)
 
     if WRITE_AIM:
         if file_path == '' and output_path == '':
