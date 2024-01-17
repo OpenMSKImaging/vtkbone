@@ -1,8 +1,14 @@
 import os
-import vtkbone
+
+import numpy as np
 import SimpleITK as sitk
 import vtk
-import numpy as np
+from python_helpers.aim_calibration_header import (
+    get_aim_calibration_constants_from_processing_log, get_aim_hu_equation)
+from python_helpers.vtk_util import numpy_to_vtkImageData
+
+import vtkbone
+
 
 def sitk_to_aim(file_path='', sitk_img=None, WRITE_AIM=False, output_path=''):
     """
