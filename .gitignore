@@ -35,3 +35,6 @@ MANIFEST
 *.spec
 
 .DS_Store
+
+# resulting .mha images
+*.mha
